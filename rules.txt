@@ -1,5 +1,5 @@
 1-21 : filtered
-22 : closed
+22 : notfiltered
 23-79 : filtered
-80 : open
+80 : notfiltered
 81-100 : filtered

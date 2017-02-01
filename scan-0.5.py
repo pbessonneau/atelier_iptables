@@ -93,6 +93,8 @@ for ii in range(1,etendue+1):
 			error = False 
 		if rules[ii] == "filtered":
 			error = False 
+		if rules[ii] == "notfiltered":
+			error = False 
 		
 		if error:
 			raise Exception()
@@ -152,6 +154,10 @@ for ip in resultats.keys():
 for ip in resultats.keys():
 	print("### " + ip + ", " + correspondance[ip] + " ####################")
 	for port in range(1, etendue + 1):
-		if rules[port] != resultats[ip][port][0]:
-			print(str(port) + ": " + resultats[ip][port][0])
+		if rules[port] == "notfiltered":
+			if resultats[ip][port][0] not in ["closed","open"]:
+				print(str(port) + ": " + resultats[ip][port][0])
+		else:
+			if rules[port] != resultats[ip][port][0]:
+				print(str(port) + ": " + resultats[ip][port][0])
 	print("")
